@@ -56,9 +56,9 @@ static error_t parse_opt(int key, char *arg, argp_state *state)
 struct termios Original_Termios;
 
 /*
-    custom terminate function
-    which will mute the speaker if it's playing sound
-    and restore terminal attributes (ncurses(?) affects them without proper closing)
+custom terminate function
+which will mute the speaker if it's playing sound
+and restore terminal attributes (ncurses(?) affects them without proper closing)
 */
 static void terminate(void)
 {
@@ -92,8 +92,9 @@ int main(int argc, char** argv)
     /*call custom sigint handler when SIGINT received*/
     signal(SIGINT, sigintHandler);
     
-    //inits the screen
-    //sets up memory and clear the screen
+    /*
+    init the screen
+    set up memory and clear the screen*/
     initscr();
 
     /*check for root privelieges*/
@@ -124,9 +125,9 @@ int main(int argc, char** argv)
     /*deallocates memory*/
     endwin();
 
-    if(usrHasPriv &&shutdown)
+    if(usrHasPriv && shutdown)
     {
-        system("poweroff");
+        system("systemctl poweroff");
     }
 
     return 0;

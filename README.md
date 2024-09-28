@@ -56,4 +56,4 @@ The displayed text and the playing music are slightly out of sync in the first v
 :moneybag: You can donate me:
 > BTC: bc1q8rcdhq4pfn45pf647afhjtdn6qhrheu3hngn9m
 
-:heart: I will buy soviet military grade gold-plated chips with this money and consume these chips in the next morning to keep my body alive
+:heart: I will buy soviet military grade gold-plated chips with this money and consume these chips the next morning to keep my body alive
