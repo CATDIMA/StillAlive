@@ -31,7 +31,7 @@ $ sudo still-alive -p
 
 ## Installation
 
-Make sure you have all following packages before compilation:
+Make sure you have all of the following packages before compiling:
 - cmake
 - libreadline-dev
 - libncurses-dev
