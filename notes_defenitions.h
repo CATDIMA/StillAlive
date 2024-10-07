@@ -59,7 +59,7 @@ constexpr int A5  = 880; /*A */
 constexpr int Ad5 = 932; /*A#*/
 constexpr int B5  = 988; /*B */
 /*octave 6*/
-constexpr int C6  = 1047    ; /*C */
+constexpr int C6  = 1047; /*C */
 constexpr int Cd6 = 1109; /*C#*/
 constexpr int D6  = 1174; /*D */
 constexpr int Dd6 = 1245; /*D#*/
