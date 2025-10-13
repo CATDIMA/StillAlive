@@ -9,7 +9,7 @@
 ___
 
 ## Description
-This program will play a song from Portal closing credits and prints its lyrics with some ascii-art on your linux machine. The program was developed for Debian and its forks such as Ubuntu, Mint and etc. (program wasn't tested on these distros) Your PC have to have a buzzer on a motherboard for playing sound.
+This program will play a song Still Alive from Portal closing credits and prints its lyrics with some ascii-art on your linux machine. The program was developed for Debian and its forks such as Ubuntu, Mint and etc. (program wasn't tested on these distros) Your PC have to have a buzzer on a motherboard for playing sound.
 
 Original song "Still Alive" was composed by Jonathan Coulton.
 
@@ -22,16 +22,17 @@ This argument requires root privelieges so use it along with `sudo`
 $ still-alive
 $ still-alive -p
 $ sudo still-alive   
-/*these 3 commands won't turn off your PC*/
+/*these three commands won't turn off your PC*/
 
 $ sudo still-alive -p
-/*this one will*/
+# still-alive -p
+/*these two will*/
 ```
 **IMPORTANT:** _Running this program in a tty console is crucial because it can play sound on a buzzer only from the console. The appearance and its behavior were developed for using in the console_
 
 ## Installation
 
-Make sure you have all of the following packages before compiling:
+Make sure you have all of the following packages before compilation:
 - cmake
 - libreadline-dev
 - libncurses-dev
