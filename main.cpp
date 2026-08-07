@@ -30,6 +30,11 @@ static const char argp_doc[] = "Play Portal ending song \"Still Alive\""
 " by motherboard buzzer and show lyrics with some ascii-art. Also it can power off PC. "
 "You MUST run this program only in linux tty console otherwise it won't work properly";
 
+#ifdef RPI_CM5
+/*for PRI_CM5*/
+int buzz_fd = 0;
+#endif
+
 static struct argp_option options[] = 
 {
     {"poweroff", 'p', 0, 0, "Shuts down the computer. You have to have superuser privelieges to use this "
@@ -100,6 +105,16 @@ int main(int argc, char** argv)
 
     /*call custom sigint handler when SIGINT received*/
     signal(SIGINT, sigintHandler);
+
+    #ifdef RPI_CM5
+    /*get the buzzer fd*/
+    buzz_fd = open("/dev/buzzer", O_RDWR);
+    if(buzz_fd < 0)
+    {
+        std::cerr << "ERROR: buzzer device doesn't exist\n";
+        return -ENODEV;
+    }
+    #endif
     
     /*
     init the screen
@@ -133,6 +148,10 @@ int main(int argc, char** argv)
 
     /*deallocates memory*/
     endwin();
+
+    #ifdef RPI_CM5
+    close(buzz_fd);
+    #endif
 
     if(usrHasPriv && shutdown)
     {

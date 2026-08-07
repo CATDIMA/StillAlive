@@ -17,6 +17,10 @@ See the GNU General Public License for more details.
 #include <unistd.h>
 #include <linux/kd.h>
 
+#ifdef RPI_CM5
+#include "buzzer_ioctl.h"
+#endif
+
 constexpr int TIMER_FREQ = 1193180; 
 
 /*BPM is the number of fourth notes per minute*/
@@ -84,11 +88,18 @@ struct Note
 
 static void silence(void)
 {
+#ifdef RPI_CM5
+    ioctl(buzz_fd, SET_FREQ, 0);
+#else
     ioctl(STDOUT_FILENO, KIOCSOUND, 0); 
+#endif
 }
 
 static void playNote(int freq)
 {
+#ifdef RPI_CM5
+    ioctl(buzz_fd, SET_FREQ, freq);
+#else
     if(freq != 0)
     {
         ioctl(STDOUT_FILENO, KIOCSOUND, TIMER_FREQ/freq);
@@ -97,6 +108,7 @@ static void playNote(int freq)
     {
         silence();
     }
+#endif
 }
 
 #endif
